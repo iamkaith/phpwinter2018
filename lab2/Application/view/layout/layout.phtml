@@ -1,0 +1,56 @@
+<?= $this->doctype() ?>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <?= $this->headTitle('Comp 4669 Lab 2')->setSeparator(' - ')->setAutoEscape(false) ?>
+
+        <?= $this->headMeta()
+            ->appendName('viewport', 'width=device-width, initial-scale=1.0')
+            ->appendHttpEquiv('X-UA-Compatible', 'IE=edge')
+        ?>
+
+        <!-- Le styles -->
+        <?= $this->headLink(['rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/favicon.ico'])
+            ->prependStylesheet($this->basePath('css/style.css'))
+            ->prependStylesheet($this->basePath('css/materialize.css'))
+            ->prependStylesheet(('https://fonts.googleapis.com/icon?family=Material+Icons'))
+        ?>
+
+        <!-- Scripts -->
+        <?= $this->headScript()
+            ->prependFile(('https://code.jquery.com/jquery-2.1.1.min.js'))
+        ?>
+    </head>
+
+
+    <body>
+    <nav class="grey lighten-5" role="navigation">
+        <div class="nav-wrapper container">
+            
+            <ul class="left">
+                <li>
+                    <a href="/"><i class="material-icons">home</i></a>
+                </li>
+                <li>
+                    <a href="/application/page1">Page 1</a>
+                </li>
+                <li>
+                    <a href="/application/page2">Page 2</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+    
+        <?= $this->content ?>
+
+    </div>
+    <?= $this->inlineScript()
+        ->prependFile($this->basePath('js/materialize.js'))
+        ->prependFile($this->basePath('js/init.js')) 
+    ?>
+</body>
+
+</html>
