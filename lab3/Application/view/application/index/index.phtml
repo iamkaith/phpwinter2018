@@ -1,0 +1,51 @@
+<div class="jumbotron">
+    <h1>Lab 3</h1>
+    <small>by Karina Ramirez A00923169</small>
+</div>
+
+<div class="container">
+    <div class="row col-6">
+
+        <!-- form -->
+        <form action="/application/index" method="POST">
+            <div class="forn-group">
+                <label>Username</label>
+                <input type="text" class="form-control" name="username" id="username" placeholder="Username">
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="text" class="form-control" name="email" id="email" placeholder="Email address">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+            <div class="form-group">
+                <label>Age</label>
+                <input type="text" class="form-control" name="age"id="age" aria-describedby="ageHelp" placeholder="Age">
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+
+        <p>
+    <?php
+    // checking environment
+    // echo phpinfo(); 
+
+    if(isset( $this->success)) {
+        echo '<div class="alert alert-success" role="alert">'.$this->success.'</div>';
+    }
+
+    if(isset( $this->error)) {
+        echo '<div class="alert alert-danger" role="alert">'.$this->error.'</div>';
+    }
+
+    if(isset( $this->message)) {
+        echo $this->message; // for now this is just blank
+    }
+
+    ?>
+
+    </p>
+    </div>  
+</div>
+
