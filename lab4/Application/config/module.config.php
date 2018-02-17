@@ -31,15 +31,35 @@ return [
             'services' => [
                 'type' => Segment::class,
                 'options' => [
-                    'route'    => '/services[?]',
+                    'route'    => '/services',
                     'defaults' => [
                         'controller' => Controller\ServicesController::class,
                         'action'     => 'index',
                     ],
                 ],
+                
+                // lab4 challenge
+                'may_terminate' => true,
+                'child_routes' => [                    
+
+                    'name' => [
+                        'type' => Segment::class,
+                        'options' => [
+                            'route' => '/:name',
+                            'defaults' => [
+                                'action'     => 'index',
+                            ],
+                            'constraints' => [  // oh look I remember some regex
+                                'name' => '[a-zA-Z]+'
+                            ],
+                        ],
+                    ],
+                ],
             ],
 
-            // home 
+
+
+            // home action
             'application' => [
                 'type'    => Segment::class,
                 'options' => [

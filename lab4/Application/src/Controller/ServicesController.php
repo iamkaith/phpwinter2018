@@ -15,24 +15,25 @@ use Zend\I18n\Validator\Alpha;
 class ServicesController extends AbstractActionController {
     
     public function indexAction() {
+
         $request = $this->getRequest();
         $status = [];
 
-        $name = $request->getQuery('name');
-
-        $isAlpha = new Alpha();
-       
-        if($request->isGet()) {
-            
-            if ( $isAlpha->isValid($name) ) {
-                $status = ['name' => ucwords($name) ];
-    
-            } else {
-                $status = ['error' => 'Name is not valid, please try again']; 
-            }    
+        // handle the challenge question
+        if($request->getQuery('name') != null) {
+            $name = $request->getQuery('name');
+        } else {
+            $name = $this->params()->fromRoute('name');    
         }
 
-        
+        $isAlpha = new Alpha();
+
+        if( $request->isGet() && $isAlpha->isValid($name) ) {                
+            $status = ['name' => ucwords($name) ];    
+
+        } else {
+            $status = ['error' => 'Name is not valid, please try again']; 
+        }
 
         // first time land make sure an error doesn't appear
         if( $request->isGet() && empty($name) ) {

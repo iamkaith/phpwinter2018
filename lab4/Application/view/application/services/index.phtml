@@ -1,23 +1,22 @@
+<div class="jumbotron">
+    <h1>Lab 4</h1>
+    <small>by Karina Ramirez A00923169</small>
+</div>
+
 <div class="container">
     <div class="row col-6">
         
-    <h2>
-    <?php
-    if(isset( $this->name)) {
-        echo 'Hi '.$this->name;
-    }
+        <h2>
+            <?php
+            if(isset( $this->name)) {
+                echo 'Hi '.$this->name.' and welcome.';
+            }
 
-    if(isset( $this->error)) {
-        echo '<div class="alert alert-danger" role="alert">'.$this->error.'</div>';
-    }
-
-    if(isset( $this->message)) {
-        echo $this->message; // just gonna be blank
-    }
-
-    ?>
-    </h2>
-
+            if(isset( $this->error)) {
+                echo '<div class="alert alert-danger" role="alert">'.$this->error.'</div>';
+            }
+            ?>
+        </h2>
     </div>  
 </div>
 

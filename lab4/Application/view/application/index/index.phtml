@@ -1,3 +1,8 @@
+<div class="jumbotron">
+    <h1>Lab 3</h1>
+    <small>by Karina Ramirez A00923169</small>
+</div>
+
 <div class="container">
     <div class="row col-6">
 
@@ -22,24 +27,16 @@
         </form>
 
         <p>
-    <?php
-    //echo phpinfo(); 
+            <?php
+            if(isset( $this->success)) {
+                echo '<div class="alert alert-success" role="alert">'.$this->success.'</div>';
+            }
 
-    if(isset( $this->success)) {
-        echo '<div class="alert alert-success" role="alert">'.$this->success.'</div>';
-    }
-
-    if(isset( $this->error)) {
-        echo '<div class="alert alert-danger" role="alert">'.$this->error.'</div>';
-    }
-
-    if(isset( $this->message)) {
-        echo $this->message; // just gonna be blank
-    }
-
-    ?>
-
-    </p>
+            if(isset( $this->error)) {
+                echo '<div class="alert alert-danger" role="alert">'.$this->error.'</div>';
+            }
+            ?>
+        </p>
     </div>  
 </div>
 
