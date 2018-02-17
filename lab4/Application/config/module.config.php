@@ -31,7 +31,7 @@ return [
             'services' => [
                 'type' => Segment::class,
                 'options' => [
-                    'route'    => '/services[/]',
+                    'route'    => '/services[?]',
                     'defaults' => [
                         'controller' => Controller\ServicesController::class,
                         'action'     => 'index',
